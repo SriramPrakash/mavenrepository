@@ -1,0 +1,41 @@
+swagger: "2.0"
+info:
+  description: "A temperature converter service."
+  version: "1.0"
+  title: Hello World App
+host: "localhost:8080"
+basePath: "/SwaggerTest-V1.0/rest"
+tags:
+- name: "ctofservice"
+schemes:
+- "http"
+paths:
+  /ctofservice/default:
+    get:
+      tags:
+      - "ctofservice"
+      operationId: "convertCtoF"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+          headers: {}
+  /ctofservice/{c}:
+    get:
+      tags:
+      - "ctofservice"
+      operationId: "convertCtoFfromInput"
+      parameters:
+      - name: "c"
+        in: "path"
+        required: true
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+          headers: {}
